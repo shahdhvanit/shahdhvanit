@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 120" role="img" aria-label="Animated ocean wave divider">
+      <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#031b2d"/><stop offset="1" stop-color="#001018"/></linearGradient>
+        <linearGradient id="w" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#006994"/><stop offset=".5" stop-color="#55e6ff"/><stop offset="1" stop-color="#006994"/></linearGradient>
+      </defs>
+      <rect width="1400" height="120" fill="url(#bg)"/>
+      <g fill="none" stroke-linecap="round">
+        <path d="M0 70 Q175 30 350 70 T700 70 T1050 70 T1400 70" stroke="url(#w)" stroke-width="8" opacity=".55">
+          <animateTransform attributeName="transform" type="translate" from="0 0" to="-350 0" dur="7s" repeatCount="indefinite"/>
+        </path>
+        <path d="M0 82 Q175 42 350 82 T700 82 T1050 82 T1400 82" stroke="#00a8cc" stroke-width="5" opacity=".75">
+          <animateTransform attributeName="transform" type="translate" from="0 0" to="-350 0" dur="5.5s" repeatCount="indefinite"/>
+        </path>
+        <path d="M0 94 Q175 54 350 94 T700 94 T1050 94 T1400 94" stroke="#55e6ff" stroke-width="3" opacity=".85">
+          <animateTransform attributeName="transform" type="translate" from="0 0" to="-350 0" dur="4.4s" repeatCount="indefinite"/>
+        </path>
+      </g>
+    </svg>

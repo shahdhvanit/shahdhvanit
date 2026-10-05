@@ -1,0 +1,39 @@
+/*
+ * Dhvanit Shah — Ocean Profile Theme
+ *
+ * GitHub profile READMEs do not execute arbitrary stylesheet files.
+ * This file is the design system/source of truth for ocean assets and
+ * any local preview page you may build around the profile.
+ */
+:root {
+  --abyss: #02121f;
+  --deep: #062b43;
+  --ocean: #006994;
+  --sea: #00a8cc;
+  --cyan: #55e6ff;
+  --foam: #e8fbff;
+  --text: #c7f7ff;
+  --muted: #77afc7;
+  --glow: 0 0 24px rgba(85, 230, 255, 0.28);
+}
+
+.ocean-shell {
+  background: radial-gradient(circle at 50% 0%, #084d6a 0%, var(--abyss) 58%);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.ocean-glow { filter: drop-shadow(0 0 12px rgba(85, 230, 255, .5)); }
+
+@keyframes drift { from { transform: translateX(0); } to { transform: translateX(-40px); } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes pulse { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+@keyframes sonarSweep { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.wave-layer { animation: drift 7s linear infinite; }
+.bubble { animation: float 4s ease-in-out infinite, pulse 3s ease-in-out infinite; }
+.sonar-sweep { transform-origin: center; animation: sonarSweep 5s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-layer, .bubble, .sonar-sweep { animation: none; }
+}

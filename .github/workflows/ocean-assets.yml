@@ -1,0 +1,43 @@
+name: 🌊 Regenerate Ocean Assets
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/ocean-assets.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🌊 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: 📦 Install Pillow
+        run: python -m pip install --upgrade pillow
+
+      - name: 🫧 Regenerate visuals
+        run: python scripts/generate_ocean_assets.py
+
+      - name: 🚀 Commit generated assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/
+          if git diff --cached --quiet; then
+            echo "No asset changes detected."
+          else
+            git commit -m "chore: refresh ocean profile assets"
+            git push
+          fi
